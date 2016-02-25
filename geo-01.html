@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="-1">
+
+<title>Simple Geolocation Test</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+
+<link rel="stylesheet" href="inc/jq/themes/theme-02.min.css" />
+<link rel="stylesheet" href="inc/jq/themes/jquery.mobile.icons.min.css" />
+
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script>
+	$(function(){
+		$( "[data-role='header'], [data-role='footer']" ).toolbar();
+		});
+    </script>
+
+<link href="mob.css" rel="stylesheet" type="text/css" />
+
+  
+</head>
+<body>
+
+<div data-role="header" data-position="fixed" data-theme="a">
+
+<div class="box1 center1 boxbluexx" >
+<img src="filemaker-bro-logo.png" width="300" height="60" border="0">
+<!--<a href="dashboard.html" rel="external"><img src="pics/appbanner-320x60-home1.png" width="320" height="61" class="center" ></a> -->
+</div>
+<!--add header -->
+</div>
+
+<!-- /header -->
+
+<section id="page01111" data-role="page">
+
+<div role="main" class="ui-content">
+<div class="content" >
+<div class="box1 center1" >
+  
+      
+<!--INSERT START -->
+
+
+<table width="320" border="0" align="center" cellpadding="4" cellspacing="4">
+<tr>
+<td colspan="2" align="center">
+
+<a class="buttonlink7" href="index.html" rel="external"> <span class="bigfont2">Return</span> </a>
+
+<!--<div class="vsp20"></div> -->
+
+<strong>Simple Geolocation Test<br>
+
+<button onclick="myFunction()">Reload page</button>
+
+<script>
+function myFunction() {
+    location.reload(true);
+}
+</script>
+
+
+<br>
+
+
+
+<span class="fgreen" id="progress"></span>
+
+</strong><br><br>
+</td>
+</tr>
+<tr>
+<td width="150"  align="right">
+
+Latitude: 
+</td>
+<td width="142" align="left"><span id="Latitude"></span></td>
+</tr>
+<tr>
+<td align="right">Longitude:</td>
+<td align="left"><span id="Longitude"></span></td>
+</tr>
+<tr>
+<td align="right">Accuracy:</td>
+<td align="left"><span id="Accuracy"></span></td>
+</tr>
+<tr>
+<td align="right">Timestamp:</td>
+<td align="left"><span id="Timestamp"></span></td>
+</tr>
+<tr>
+<td align="right" valign="top">Timestamp as Date:</td>
+<td align="left" valign="top"><span id="nowgeots"></span></td>
+</tr>
+
+
+<!--<tr>
+<td align="left">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr> -->
+</table>
+
+
+
+
+<!--Latitude: <span id="Latitude"></span><br><br>
+Longitude: <span id="Longitude"></span><br><br> -->
+<!--Altitude: <span id="Altitude"></span><br><br> -->
+<!--Accuracy: <span id="Accuracy"></span><br><br> -->
+<!--Altitude_Accuracy: <span id="Altitude_Accuracy"></span><br><br> -->
+<!--Heading: <span id="Heading"></span><br><br>
+Speed: <span id="Speed"></span><br><br> -->
+<!--Timestamp: <span id="Timestamp"></span><br><br>
+Timestamp Date: <span id="nowgeots"></span><br><br> -->
+
+
+
+
+
+
+
+<!--
+
+
+var Latitude = position.coords.latitude;
+var Longitude = position.coords.longitude;
+var Altitude = position.coords.altitude;
+var Accuracy = position.coords.accuracy;
+var Altitude_Accuracy = position.coords.altitudeAccuracy;
+var Heading = position.coords.heading;
+var Speed = position.coords.speed;
+var Timestamp = position.timestamp
+
+
+var Latitude = position.coords.latitude;
+var Longitude = position.coords.longitude;
+var Altitude = position.coords.altitude;
+var Accuracy = position.coords.accuracy;
+var Altitude_Accuracy = position.coords.altitudeAccuracy;
+var Heading = position.coords.heading;
+var Speed = position.coords.speed;
+var Timestamp = position.timestamp
+
+
+ -->
+
+
+<script>
+
+// onSuccess Callback
+// This method accepts a Position object, which contains the
+// current GPS coordinates
+//
+
+document.getElementById('progress').textContent = "Looking up Your Current Location... ";
+
+
+var onSuccess = function(position) {
+    
+	/*
+	alert('Latitude: '          + position.coords.latitude          + '\n' +
+          'Longitude: '         + position.coords.longitude         + '\n' +
+          'Altitude: '          + position.coords.altitude          + '\n' +
+          'Accuracy: '          + position.coords.accuracy          + '\n' +
+          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+          'Heading: '           + position.coords.heading           + '\n' +
+          'Speed: '             + position.coords.speed             + '\n' +
+          'Timestamp: '         + position.timestamp                + '\n');
+
+*/
+
+
+
+var Latitude = position.coords.latitude;
+var Longitude = position.coords.longitude;
+var Altitude = position.coords.altitude;
+var Accuracy = position.coords.accuracy;
+var Altitude_Accuracy = position.coords.altitudeAccuracy;
+var Heading = position.coords.heading;
+var Speed = position.coords.speed;
+var Timestamp = position.timestamp
+
+var nowstamp = new Date();
+var nowgeots = new Date(position.timestamp);
+
+document.getElementById('progress').textContent = "These are the results showing the current location... ";
+
+/*
+
+alert('nowstamp: '    + nowstamp    + '\n' +
+      'nowgeots: ' + nowgeots + '\n');
+
+*/
+
+
+document.getElementById('Latitude').textContent = Latitude;
+document.getElementById('Longitude').textContent = Longitude;
+//document.getElementById('Altitude').textContent = Altitude;
+document.getElementById('Accuracy').textContent = Accuracy;
+//document.getElementById('Altitude_Accuracy').textContent = Altitude_Accuracy;
+//document.getElementById('Heading').textContent = Heading;
+//document.getElementById('Speed').textContent = Speed;
+document.getElementById('Timestamp').textContent = Timestamp;
+document.getElementById('nowgeots').textContent = nowgeots;
+
+
+
+};
+//lastcheck_test = new Date();
+//date position.timestamp
+
+
+// onError Callback receives a PositionError object
+//
+function onError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+
+navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+
+
+
+
+</script>
+
+
+<!--INSERT END -->
+
+</div><!-- end .box -->
+</div><!-- end .content -->
+</div><!-- /ui-content -->
+  
+</section><!-- /page -->
+
+<footer data-role="footer" class="ui-barNAH" data-position="fixed" data-theme="a">
+<div class="ui-grid-c boxblue">
+<!--add footer -->
+
+<!--foot -->
+
+</div>
+</footer>
+
+<!-- /footer -->
+
+</body>
+</html>
+
+<!-- code for including header/footer -->
+    <script type="text/javascript">
+      
+      // we're ready, include away
+      $(window).ready(function(){
+        
+        // use easy AJAX jQuery helpers
+        
+		// header no work!!!!
+        // add header.html into <header>
+        $.get("header-inc.html", function(fileData){
+          $('header').html(fileData); 
+        });
+
+        // add footer.html into <footer>
+        $.get("footer-incxxx.html", function(fileData){
+          $('footer').html(fileData); 
+        });
+       
+	 /*   */
+	   
+	   
+      });
+      
+    </script>
